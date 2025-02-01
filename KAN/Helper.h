@@ -124,4 +124,20 @@ public:
         xmax = (xmin_plus_xmax + xmax_minus_xmin) / 2.0;
         xmin = xmin_plus_xmax - xmax;
     }
+
+    static double Min(const std::unique_ptr<double[]>& x, int N) {
+        double min = x[0];
+        for (int i = 1; i < N; ++i) {
+            if (x[i] < min) min = x[i];
+        }
+        return min;
+    }
+
+    static double Max(const std::unique_ptr<double[]>& x, int N) {
+        double max = x[0];
+        for (int i = 1; i < N; ++i) {
+            if (x[i] > max) max = x[i];
+        }
+        return max;
+    }
 };
